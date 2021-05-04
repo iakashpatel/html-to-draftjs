@@ -43,7 +43,7 @@ export default function processInlineTag(
           style.add(`fontfamily-${fontFamily}`);
         }
         if (padding) {
-          style.add(`padding-${padding}`);
+          style.add(`padding-${padding.replace(/px$/g, "")}`);
         }
         if (fontWeight === "bold") {
           style.add(inlineTags.strong);
