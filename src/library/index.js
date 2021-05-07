@@ -63,8 +63,8 @@ function genFragment(
     entityConfig.alt = node.alt;
     entityConfig.height = node.style.height;
     entityConfig.width = node.style.width;
-    if (node.style.float) {
-      entityConfig.alignment = node.style.float;
+    if(node.parentElement.style){
+      entityConfig.alignment = node.parentElement.style.textAlign
     }
     const entityId = Entity.__create(
       'IMAGE',
