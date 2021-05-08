@@ -25,7 +25,7 @@ export default function processInlineTag(
         const color = htmlElement.style.color;
         const backgroundColor = htmlElement.style.backgroundColor;
         const fontSize = htmlElement.style.fontSize;
-        const padding = htmlElement.style.padding;
+        const padding = htmlElement.style.padding.replace(/^"|"$/g, "");
         const fontFamily = htmlElement.style.fontFamily.replace(/^"|"$/g, "");
         const fontWeight = htmlElement.style.fontWeight;
         const textDecoration = htmlElement.style.textDecoration;
@@ -43,7 +43,7 @@ export default function processInlineTag(
           style.add(`fontfamily-${fontFamily}`);
         }
         if (padding) {
-          style.add(`padding-${padding.replace(/px$/g, "")}`);
+          style.add(`padding-${padding}`);
         }
         if (fontWeight === "bold") {
           style.add(inlineTags.strong);
